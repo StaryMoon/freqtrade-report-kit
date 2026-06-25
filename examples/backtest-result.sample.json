@@ -1,0 +1,141 @@
+{
+  "strategy": {
+    "MomentumScalper": {
+      "stake_currency": "USDT",
+      "backtest_start": "2026-01-01",
+      "backtest_end": "2026-03-31",
+      "total_trades": 8,
+      "wins": 5,
+      "losses": 3,
+      "draws": 0,
+      "profit_total_abs": 182.42,
+      "profit_total": 0.1824,
+      "profit_factor": 1.74,
+      "expectancy": 22.8,
+      "max_drawdown": 0.118,
+      "max_drawdown_abs": 91.6,
+      "sharpe": 1.29,
+      "sortino": 1.77,
+      "calmar": 1.54,
+      "market_change": 0.063,
+      "results_per_pair": [
+        {
+          "key": "BTC/USDT",
+          "trades": 3,
+          "wins": 2,
+          "losses": 1,
+          "profit_total_abs": 88.1,
+          "profit_total": 0.0881,
+          "profit_mean": 0.0294
+        },
+        {
+          "key": "ETH/USDT",
+          "trades": 3,
+          "wins": 2,
+          "losses": 1,
+          "profit_total_abs": 71.3,
+          "profit_total": 0.0713,
+          "profit_mean": 0.0238
+        },
+        {
+          "key": "SOL/USDT",
+          "trades": 2,
+          "wins": 1,
+          "losses": 1,
+          "profit_total_abs": 23.02,
+          "profit_total": 0.023,
+          "profit_mean": 0.0115
+        }
+      ],
+      "trades": [
+        {
+          "pair": "BTC/USDT",
+          "open_date": "2026-01-03 04:00:00",
+          "close_date": "2026-01-04 12:00:00",
+          "profit_abs": 41.2,
+          "profit_ratio": 0.0412,
+          "open_rate": 42800,
+          "close_rate": 44560,
+          "exit_reason": "roi"
+        },
+        {
+          "pair": "ETH/USDT",
+          "open_date": "2026-01-08 09:00:00",
+          "close_date": "2026-01-10 19:00:00",
+          "profit_abs": -18.9,
+          "profit_ratio": -0.0189,
+          "open_rate": 2380,
+          "close_rate": 2335,
+          "exit_reason": "stop_loss"
+        },
+        {
+          "pair": "SOL/USDT",
+          "open_date": "2026-02-14 03:00:00",
+          "close_date": "2026-02-15 06:00:00",
+          "profit_abs": 31.5,
+          "profit_ratio": 0.0315,
+          "open_rate": 104.2,
+          "close_rate": 107.5,
+          "exit_reason": "trailing_stop_loss"
+        }
+      ]
+    },
+    "MeanReversionGuard": {
+      "stake_currency": "USDT",
+      "backtest_start": "2026-01-01",
+      "backtest_end": "2026-03-31",
+      "total_trades": 6,
+      "wins": 3,
+      "losses": 3,
+      "draws": 0,
+      "profit_total_abs": 44.12,
+      "profit_total": 0.0441,
+      "profit_factor": 1.13,
+      "expectancy": 7.35,
+      "max_drawdown": 0.214,
+      "max_drawdown_abs": 136.9,
+      "sharpe": 0.38,
+      "sortino": 0.51,
+      "calmar": 0.21,
+      "market_change": 0.063,
+      "results_per_pair": [
+        {
+          "key": "BTC/USDT",
+          "trades": 2,
+          "wins": 1,
+          "losses": 1,
+          "profit_total_abs": 55.1,
+          "profit_total": 0.0551,
+          "profit_mean": 0.0275
+        },
+        {
+          "key": "ETH/USDT",
+          "trades": 4,
+          "wins": 2,
+          "losses": 2,
+          "profit_total_abs": -10.98,
+          "profit_total": -0.011,
+          "profit_mean": -0.0027
+        }
+      ],
+      "trades": [
+        {
+          "pair": "BTC/USDT",
+          "open_date": "2026-02-01 10:00:00",
+          "close_date": "2026-02-03 11:00:00",
+          "profit_abs": 55.1,
+          "profit_ratio": 0.0551,
+          "exit_reason": "roi"
+        },
+        {
+          "pair": "ETH/USDT",
+          "open_date": "2026-03-07 18:00:00",
+          "close_date": "2026-03-09 02:00:00",
+          "profit_abs": -31.2,
+          "profit_ratio": -0.0312,
+          "exit_reason": "stop_loss"
+        }
+      ]
+    }
+  }
+}
