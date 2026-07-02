@@ -4,6 +4,12 @@ Turn Freqtrade backtest JSON exports into clean Markdown, HTML, and CSV risk rep
 
 This is a small companion tool for the [Freqtrade](https://github.com/freqtrade/freqtrade) ecosystem. It is not affiliated with Freqtrade; it simply reads backtest-style JSON exports and turns them into reports that are easier to review, share, paste into Obsidian, or attach to a strategy README.
 
+<p align="center">
+  <img src="assets/screenshots/freqtrade-github.png" alt="Freqtrade public GitHub page screenshot" width="880">
+</p>
+
+<sub>Image source: public Freqtrade GitHub page screenshot, [https://github.com/freqtrade/freqtrade](https://github.com/freqtrade/freqtrade). Used as a visual reference for the backtesting/reporting ecosystem; this project is not affiliated with Freqtrade.</sub>
+
 ## Why This Exists
 
 Freqtrade already gives serious traders a strong backtesting engine. The missing daily workflow is often the last mile:
