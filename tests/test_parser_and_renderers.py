@@ -1,6 +1,7 @@
 import unittest
 from pathlib import Path
 
+from freqtrade_report_kit.gates import evaluate_risk_gates
 from freqtrade_report_kit.parser import load_report
 from freqtrade_report_kit.renderers import render_html, render_markdown
 
@@ -37,6 +38,30 @@ class ParserAndRendererTest(unittest.TestCase):
         self.assertIn("<table>", html)
         self.assertIn("MomentumScalper", html)
         self.assertIn("Freqtrade Backtest Risk Report", html)
+
+    def test_risk_gates_pass_and_fail_on_best_strategy(self) -> None:
+        bundle = load_report(SAMPLE)
+
+        self.assertEqual(
+            evaluate_risk_gates(
+                bundle.best_strategy,
+                min_profit_factor=1.5,
+                max_drawdown_pct=15,
+                min_trades=8,
+            ),
+            [],
+        )
+
+        failures = evaluate_risk_gates(
+            bundle.best_strategy,
+            min_profit_factor=2.0,
+            max_drawdown_pct=10,
+            min_trades=12,
+        )
+        self.assertEqual(len(failures), 3)
+        self.assertIn("profit factor", failures[0])
+        self.assertIn("max drawdown", failures[1])
+        self.assertIn("trades", failures[2])
 
 
 if __name__ == "__main__":

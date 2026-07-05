@@ -62,6 +62,18 @@ ft-report-kit examples/backtest-result.sample.json \
   --csv reports/sample-summary.csv
 ```
 
+Use risk gates in CI:
+
+```bash
+ft-report-kit examples/backtest-result.sample.json \
+  --output reports/sample-report.md \
+  --fail-under-profit-factor 1.3 \
+  --fail-over-drawdown 20 \
+  --fail-under-trades 30
+```
+
+The command exits with code `2` if the best strategy fails any gate, which makes it useful in GitHub Actions, cron jobs, or local pre-live checklists.
+
 Print the report in terminal:
 
 ```bash
@@ -126,6 +138,12 @@ options:
   --html HTML           Optional HTML output path.
   --csv CSV             Optional strategy summary CSV output path.
   --print               Print the Markdown report to stdout after writing files.
+  --fail-under-profit-factor FAIL_UNDER_PROFIT_FACTOR
+                        Exit with code 2 if the best strategy profit factor is below this value.
+  --fail-over-drawdown FAIL_OVER_DRAWDOWN
+                        Exit with code 2 if the best strategy max drawdown percentage is above this value.
+  --fail-under-trades FAIL_UNDER_TRADES
+                        Exit with code 2 if the best strategy has fewer trades than this value.
 ```
 
 ## Good Use Cases

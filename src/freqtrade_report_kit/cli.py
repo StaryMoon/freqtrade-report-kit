@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from .gates import evaluate_risk_gates
 from .parser import load_report
 from .renderers import render_html, render_markdown, write_csv
 
@@ -25,6 +26,24 @@ def main() -> int:
         "--print",
         action="store_true",
         help="Print the Markdown report to stdout after writing files.",
+    )
+    parser.add_argument(
+        "--fail-under-profit-factor",
+        type=float,
+        default=None,
+        help="Exit with code 2 if the best strategy profit factor is below this value.",
+    )
+    parser.add_argument(
+        "--fail-over-drawdown",
+        type=float,
+        default=None,
+        help="Exit with code 2 if the best strategy max drawdown percentage is above this value.",
+    )
+    parser.add_argument(
+        "--fail-under-trades",
+        type=int,
+        default=None,
+        help="Exit with code 2 if the best strategy has fewer trades than this value.",
     )
     args = parser.parse_args()
 
@@ -51,6 +70,17 @@ def main() -> int:
             print(f"Wrote HTML report to {args.html}")
         if args.csv:
             print(f"Wrote CSV summary to {args.csv}")
+
+    failures = evaluate_risk_gates(
+        bundle.best_strategy,
+        min_profit_factor=args.fail_under_profit_factor,
+        max_drawdown_pct=args.fail_over_drawdown,
+        min_trades=args.fail_under_trades,
+    )
+    if failures:
+        for failure in failures:
+            print(f"Risk gate failed: {failure}")
+        return 2
     return 0
 
 
