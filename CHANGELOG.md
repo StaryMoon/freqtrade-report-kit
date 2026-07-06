@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.1 - 2026-07-06
+
+- Add a copy-paste GitHub Actions workflow for generating backtest reports.
+- Document how to use risk gates as CI checks while still uploading report artifacts.
+
 ## v0.2.0 - 2026-07-05
 
 - Add CLI risk gates for profit factor, drawdown, and minimum trade count.

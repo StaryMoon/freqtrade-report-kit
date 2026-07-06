@@ -1,0 +1,46 @@
+name: Freqtrade Backtest Report
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "backtests/**/*.json"
+      - ".github/workflows/freqtrade-report.yml"
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install freqtrade-report-kit
+        run: |
+          python -m pip install -U pip
+          python -m pip install "git+https://github.com/StaryMoon/freqtrade-report-kit.git@v0.2.1"
+
+      - name: Generate risk report
+        run: |
+          mkdir -p reports
+          ft-report-kit backtests/latest.json \
+            --output reports/backtest-report.md \
+            --html reports/backtest-report.html \
+            --csv reports/backtest-summary.csv \
+            --fail-under-profit-factor 1.30 \
+            --fail-over-drawdown 20 \
+            --fail-under-trades 30
+
+      - name: Upload report artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: freqtrade-backtest-report
+          path: |
+            reports/backtest-report.md
+            reports/backtest-report.html
+            reports/backtest-summary.csv

@@ -74,6 +74,11 @@ ft-report-kit examples/backtest-result.sample.json \
 
 The command exits with code `2` if the best strategy fails any gate, which makes it useful in GitHub Actions, cron jobs, or local pre-live checklists.
 
+For a copy-paste workflow, see:
+
+- [`examples/github-actions/freqtrade-report.yml`](examples/github-actions/freqtrade-report.yml)
+- [`docs/github-actions.md`](docs/github-actions.md)
+
 Print the report in terminal:
 
 ```bash
@@ -170,7 +175,7 @@ Freqtrade is the upstream trading bot/backtesting ecosystem that inspired this t
 - [ ] Parse more exact Freqtrade export variants from real-world samples.
 - [ ] Add equity curve extraction when time-series fields are available.
 - [ ] Add PNG chart export for README badges and social sharing.
-- [ ] Add GitHub Action example for auto-generating reports after backtests.
+- [x] Add GitHub Action example for auto-generating reports after backtests.
 - [ ] Add optional Streamlit viewer for local exploration.
 
 ## License
