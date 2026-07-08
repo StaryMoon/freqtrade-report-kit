@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.6 - 2026-07-08
+
+- Remove import-order enforcement from CI linting so the workflow focuses on syntax and bug checks.
+
 ## v0.2.5 - 2026-07-08
 
 - Adjust test import ordering for CI lint.
