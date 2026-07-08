@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "freqtrade-report-kit"
-version = "0.2.3"
+version = "0.2.4"
 description = "Generate clean Markdown, HTML, and CSV risk reports from Freqtrade backtest JSON exports."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -58,5 +58,5 @@ line-length = 100
 target-version = "py39"
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "UP", "B", "SIM"]
-ignore = ["UP006", "UP007"]
+select = ["E", "F", "I", "B", "SIM"]
+ignore = ["E501"]

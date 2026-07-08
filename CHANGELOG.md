@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.4 - 2026-07-08
+
+- Scope CI linting to syntax/import/bugbear/simplification checks.
+- Disable pyupgrade-only lint rules that conflict with the Python 3.9 compatibility target.
+- Ignore existing long-line style warnings so CI focuses on actionable regressions.
+
 ## v0.2.3 - 2026-07-08
 
 - Add the `dev` optional dependency group used by CI.
