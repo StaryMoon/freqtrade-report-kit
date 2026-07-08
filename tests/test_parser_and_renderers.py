@@ -1,5 +1,5 @@
-import unittest
 from pathlib import Path
+import unittest
 
 from freqtrade_report_kit.gates import evaluate_risk_gates
 from freqtrade_report_kit.parser import load_report

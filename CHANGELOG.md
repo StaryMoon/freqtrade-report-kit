@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.5 - 2026-07-08
+
+- Adjust test import ordering for CI lint.
+
 ## v0.2.4 - 2026-07-08
 
 - Scope CI linting to syntax/import/bugbear/simplification checks.
