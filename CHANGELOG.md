@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.3 - 2026-07-08
+
+- Add the `dev` optional dependency group used by CI.
+- Include `ruff` in `.[dev]` so the workflow lint step installs its toolchain explicitly.
+
 ## v0.2.2 - 2026-07-08
 
 - Add GitHub Actions CI for Python 3.9, 3.10, 3.11, and 3.12.
