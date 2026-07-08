@@ -3,7 +3,7 @@ from __future__ import annotations
 import csv
 import html
 from pathlib import Path
-from typing import Iterable, List
+from typing import Iterable, List, Optional, Union
 
 from .models import PairSummary, ReportBundle, StrategySummary, TradeSummary
 
@@ -80,7 +80,7 @@ def render_html(bundle: ReportBundle) -> str:
 """
 
 
-def write_csv(bundle: ReportBundle, path: str | Path) -> None:
+def write_csv(bundle: ReportBundle, path: Union[str, Path]) -> None:
     output = Path(path)
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("w", encoding="utf-8", newline="") as handle:
@@ -278,11 +278,11 @@ def fmt_pct(value: float) -> str:
     return f"{value:.2f}%"
 
 
-def fmt_optional_pct(value: float | None) -> str:
+def fmt_optional_pct(value: Optional[float]) -> str:
     return "-" if value is None else fmt_pct(value)
 
 
-def fmt_optional(value: float | None) -> str:
+def fmt_optional(value: Optional[float]) -> str:
     return "-" if value is None else f"{value:.3f}"
 
 

@@ -8,9 +8,9 @@ from .models import StrategySummary
 def evaluate_risk_gates(
     strategy: Optional[StrategySummary],
     *,
-    min_profit_factor: float | None = None,
-    max_drawdown_pct: float | None = None,
-    min_trades: int | None = None,
+    min_profit_factor: Optional[float] = None,
+    max_drawdown_pct: Optional[float] = None,
+    min_trades: Optional[int] = None,
 ) -> List[str]:
     failures: List[str] = []
     if min_profit_factor is None and max_drawdown_pct is None and min_trades is None:

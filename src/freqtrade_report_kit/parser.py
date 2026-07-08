@@ -2,12 +2,12 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Mapping, Optional
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 from .models import PairSummary, ReportBundle, StrategySummary, TradeSummary
 
 
-def load_report(path: str | Path) -> ReportBundle:
+def load_report(path: Union[str, Path]) -> ReportBundle:
     report_path = Path(path)
     with report_path.open("r", encoding="utf-8") as handle:
         payload = json.load(handle)

@@ -1,5 +1,7 @@
 # Freqtrade Report Kit
 
+[![CI](https://github.com/StaryMoon/freqtrade-report-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/StaryMoon/freqtrade-report-kit/actions/workflows/ci.yml)
+
 Turn Freqtrade backtest JSON exports into clean Markdown, HTML, and CSV risk reports.
 
 This is a small companion tool for the [Freqtrade](https://github.com/freqtrade/freqtrade) ecosystem. It is not affiliated with Freqtrade; it simply reads backtest-style JSON exports and turns them into reports that are easier to review, share, paste into Obsidian, or attach to a strategy README.

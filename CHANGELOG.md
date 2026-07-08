@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.2.2 - 2026-07-08
+
+- Add GitHub Actions CI for Python 3.9, 3.10, 3.11, and 3.12.
+- Keep public type annotations compatible with the declared Python 3.9 support window.
+- Add README CI badge.
+- Add a CI smoke test that exercises report generation and passing risk gates.
+
 ## v0.2.1 - 2026-07-06
 
 - Add a copy-paste GitHub Actions workflow for generating backtest reports.
